@@ -58,6 +58,7 @@ public class EnvironmentBlocks {
     public static Block andesiteExtrusions, CrystalGalena, basaltBluff, towaniteCluster, azuriteLarge, pinkSaltCrystals, bewCoral, yulrCoral, tranticaBush, regoubloom, pillarCoral, loteasCoral, songCoral;
     //overlays
     public static Block scrapChunks, scorche, crasindLitter, sparseSnow;
+    public static Block checkpoint;
     //floors
     public static Block  tranticaOvergrownFloor, smoothBrecciaFloor, arsenideFloor, arsenideLayers, chertFloor, algal_carpet, coral_floor, cupriteFloor, feldspar, ferric_extrusions,
             gabbro_extrusions, gabbro, petroleumFloor, petroleumSeep, rubble, roughFeldspar, feldsparPebbles, feldsparRubble, smoothFeldspar, phylite_floor, slate, ultrafamicFloor, brimstoneFloor,
@@ -451,6 +452,9 @@ public class EnvironmentBlocks {
         }};
         sparseSnow = new OverlayFloor("sparse-snow"){{
             variants = 3;
+        }};
+        checkpoint = new CheckpointBlock("checkpoint"){{
+            buildVisibility = BuildVisibility.editorOnly;
         }};
         arsenideFloor = new Floor("arsenide-floor", 4) {{
             attributes.set(fertility, -5f);
