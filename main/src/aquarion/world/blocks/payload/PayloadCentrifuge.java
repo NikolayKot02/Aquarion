@@ -16,11 +16,14 @@ import mindustry.type.PayloadSeq;
 import mindustry.world.blocks.payloads.BuildPayload;
 import mindustry.world.blocks.payloads.Payload;
 import mindustry.world.blocks.payloads.PayloadBlock;
+import mindustry.world.draw.DrawBlock;
+import mindustry.world.draw.DrawMulti;
 
 public class PayloadCentrifuge extends PayloadBlock {
     public float processTime = 240f;
     public float spinRadius = 16f;
     public float warmupSpeed = 0.01f;
+    public DrawBlock drawer = new DrawMulti();
     public @Annotations.Load("@-blur") TextureRegion blurRegion;
     public PayloadCentrifuge(String name) {
         super(name);
@@ -140,6 +143,8 @@ public class PayloadCentrifuge extends PayloadBlock {
             float alpha = -Mathf.pow((2*(prog))-1, 4)+1;
             Draw.alpha(alpha);
             Draw.rect(blurRegion, x, y, totalProgress*2);
+            drawer.draw(this);
+            Draw.reset();
         }
 
         @Override
