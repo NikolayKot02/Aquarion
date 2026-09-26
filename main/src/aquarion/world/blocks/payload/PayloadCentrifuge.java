@@ -7,8 +7,10 @@ import arc.math.Interp;
 import arc.math.Mathf;
 import arc.struct.FloatSeq;
 import arc.struct.Seq;
+import arc.util.Eachable;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
+import mindustry.entities.units.BuildPlan;
 import mindustry.gen.Building;
 import mindustry.graphics.Drawf;
 import mindustry.type.ItemStack;
@@ -33,7 +35,14 @@ public class PayloadCentrifuge extends PayloadBlock {
         update = true;
         rotate = false;
     }
-
+    @Override
+    public TextureRegion[] icons(){
+        return drawer.finalIcons(this);
+    }
+    @Override
+    public void drawPlanRegion(BuildPlan plan, Eachable<BuildPlan> list){
+        drawer.drawPlan(this, plan, list);
+    }
     @Override
     public boolean outputsItems() {
         return true;
